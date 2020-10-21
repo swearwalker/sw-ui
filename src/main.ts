@@ -1,11 +1,19 @@
-import Vue from "vue";
-import App from "./App.vue";
-import "./registerServiceWorker";
+import * as components from './'
 
-Vue.config.productionTip = false;
+const ComponentLibrary = {
+  install(Vue: any, options = {}) {
+    // components
+    for (const componentName in components) {
+      // @ts-ignore
+      const component = components[componentName]
 
-console.info("yay")
+      Vue.component(component.name, component)
+    }
+  }
+}
 
-new Vue({
-  render: h => h(App)
-}).$mount("#app");
+export default ComponentLibrary
+
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(ComponentLibrary)
+}
