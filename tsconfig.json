@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declarationDir": "lib",
     "target": "esnext",
     "module": "esnext",
     "strict": true,

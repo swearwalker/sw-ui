@@ -1,1 +1,3 @@
-export { default as TestComponent } from './components/test.vue';
+import SwButton from "./components/sw-button/sw-button.vue";
+
+export { SwButton };

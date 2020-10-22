@@ -1,1 +1,1 @@
-export * from './test.dto'
+export * from './sw-button.dto'
