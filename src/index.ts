@@ -1,3 +1,3 @@
-import SwButton from "./components/sw-button/sw-button.vue";
+import SwButton from './components/sw-button/sw-button.vue'
 
-export { SwButton };
+export { SwButton }

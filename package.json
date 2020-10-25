@@ -1,17 +1,20 @@
 {
   "name": "@swearwalker/sw-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "scripts": {
-    "build": "rollup -c"
+    "dev": "vue-cli-service serve",
+    "build": "rollup -c",
+    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "lint:f": "eslint --fix --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "prettier": "prettier -c \"./**/*.{vue,ts,js,css,scss,json}\" --ignore-path .gitignore .",
+    "prettier:w": "npm run prettier -- --write"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.12",
-    "vue-class-component": "^7.2.6",
-    "vue-property-decorator": "^9.0.2"
+    "vue-router": "^3.4.7"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.1.0",
@@ -36,24 +39,10 @@
     "rollup-plugin-vue": "^5.1.9",
     "sass-loader": "^10.0.3",
     "typescript": "~4.0.3",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/typescript/recommended",
-      "@vue/prettier",
-      "@vue/prettier/@typescript-eslint"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2020
-    },
-    "rules": {}
+    "vue-template-compiler": "^2.6.12",
+    "vue": "^2.6.12",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.0.2"
   },
   "browserslist": [
     "> 1%",

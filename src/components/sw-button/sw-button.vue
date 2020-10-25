@@ -11,48 +11,49 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Emit, Vue } from "vue-property-decorator";
-import { SwButtonDto } from "@/types";
-import { ColorsEnums, SizesEnums, SwButtonTagsEnums } from "@/enums";
+import { Component, Prop, Emit, Vue } from 'vue-property-decorator'
+import { SwButtonDto } from '@/types'
+import { ColorsEnums, SizesEnums, SwButtonTagsEnums } from '@/enums'
+import { RawLocation } from 'vue-router'
 
 @Component
 export default class SwButton extends Vue implements SwButtonDto {
   @Prop()
-  public to?: string;
+  public to?: RawLocation
 
   @Prop({ default: ColorsEnums.DEFAULT })
-  public color!: ColorsEnums;
+  public color!: ColorsEnums
 
   @Prop({ type: Boolean, default: false })
-  public flat!: boolean;
+  public flat!: boolean
 
   @Prop({ type: Boolean, default: false })
-  public border!: boolean;
+  public border!: boolean
 
   @Prop({ type: Boolean, default: false })
-  public relief!: boolean;
+  public relief!: boolean
 
   @Prop({ type: Boolean, default: false })
-  public gradient!: boolean;
+  public gradient!: boolean
 
   @Prop({ type: Boolean, default: false })
-  public disabled!: boolean;
+  public disabled!: boolean
 
   @Prop({ type: Boolean, default: false })
-  public circle!: boolean;
+  public circle!: boolean
 
   @Prop({ type: Boolean, default: false })
-  public transparent!: boolean;
+  public transparent!: boolean
 
   @Prop({ type: Boolean, default: false })
-  public square!: boolean;
+  public square!: boolean
 
   @Prop({ default: SizesEnums.MD })
-  public size!: SizesEnums;
+  public size!: SizesEnums
 
-  @Emit("click")
+  @Emit('click')
   click(event: { target: EventTarget }) {
-    return event.target;
+    return event.target
   }
 
   get classList(): Array<any> {
@@ -66,15 +67,15 @@ export default class SwButton extends Vue implements SwButtonDto {
       { [`sw-button__square`]: this.square },
       { [`sw-button__circle`]: this.circle },
       { [`sw-button__transparent`]: this.transparent },
-    ];
+    ]
   }
 
   get tag(): SwButtonTagsEnums {
-    return this.to ? SwButtonTagsEnums.LINK : SwButtonTagsEnums.BUTTON;
+    return this.to ? SwButtonTagsEnums.LINK : SwButtonTagsEnums.BUTTON
   }
 
   get sizeClass(): string {
-    return `sw-button__size-${this.size}`;
+    return `sw-button__size-${this.size}`
   }
 }
 </script>
